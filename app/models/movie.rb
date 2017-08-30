@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+class Movie < ApplicationRecord
   has_many :watchlists
   has_many :favorites
   has_many :comments
