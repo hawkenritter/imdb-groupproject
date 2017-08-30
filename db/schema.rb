@@ -80,4 +80,5 @@ ActiveRecord::Schema.define(version: 20170830190249) do
   add_foreign_key "favorites", "users"
   add_foreign_key "watchlists", "movies"
   add_foreign_key "watchlists", "users"
+
 end
