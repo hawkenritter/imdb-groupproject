@@ -23,13 +23,13 @@ default: &default
 
 development:
   <<: *default
-  database: imbd-group-project_development
+  database: imdb_group_project_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  #username: imbd-group-project
+  #username: imdb_group_project
 
   # The password associated with the postgres role (username).
   #password:
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: imbd-group-project_test
+  database: imdb_group_project_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: imbd-group-project_production
-  username: imbd-group-project
-  password: <%= ENV['IMBD-GROUP-PROJECT_DATABASE_PASSWORD'] %>
+  database: imdb_group_project_production
+  username: imdb_group_project
+  password: <%= ENV['IMDB_GROUP_PROJECT_DATABASE_PASSWORD'] %>
