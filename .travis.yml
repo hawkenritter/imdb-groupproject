@@ -1,16 +1,17 @@
 language: ruby
-
 rvm:
-  - 2.4.1
-
+- 2.4.1
 services:
-  - postgresql
-
+- postgresql
 before_script:
-  - psql -c 'create database imbd_group_project_test;' -U postgres
-
+- psql -c 'create database imbd_group_project_test;' -U postgres
 script:
 - RAILS_ENV=test bundle exec rake db:migrate --trace
 - bundle exec rake db:test:prepare
 - bundle exec rake db:seed RAILS_ENV=test
 - bundle exec rspec spec/
+deploy:
+  provider: heroku
+  app: pure-thicket-51811
+  api_key:
+    secure: aglCZ3NY5F6LCSy6EbcGkl6m8AngoWnuKDLuPaYRZGbywVf3Oi8gQBr55gSzXjOpZEiAz1cEdYHgKTKWPhc0QQEPq+D2xww3BV6MYshFa2Vgehr/Lt8LQXx8gy7D1A25XJK3z4+OpQCVUEgOkBmT/2CtJ4TVDEuF0W2BrF2COrxBuJ/vewWAYuQjnhqFQMpAMqERqzaicQnEuXzXToIHAHynJ9yV+aMMwzEAsS9LO/u88zB7H4IeSJdXIg/iJ9/jmj/G6BL69kcK8r/KhWwoN06YR8GYTWPYG0Ga8yZyLK86REzI5Y5wDaxkq0ONQ+/376pg2ga4k5Ng+JSlsSbOzO7x7PD8Qvo1f3ouUsuMiXeDQhEV1r9norJ6EOkXQ07r2HcqyM2+wcS9mDly+3927NUrHQiJPgOXez4jxqdquQNgoURIb3R3CioPvuXUjNJyMLDJt91h3wg6ZH9H6weDBe+2tteHeAmFR7w35ToWEoM9FE/IJKgRYWEmbQnF0IWcuWAQoBidHEQosL4/m2wYpQ40b9hBNGaMHtkpM41rWNebrbfgpPnyBIS5GtBRFQF1Whxdwo1yFe7dgrxN1KmPljjz7nUwLOd0n+3mCbgWTFVX9Y3lyCJ6VpqeOkxfMC4B3ZjQdELwq/Y5ZlQonsJYnuqIJuiWDJoiURr0aYaxygI=
