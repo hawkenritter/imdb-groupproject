@@ -15,34 +15,41 @@ body {
 }
 
 #search-form input[type=submit] {
-  margin-bottom: 20px;
   display: inline-block;
+  height: 20px;
+  width: 50px;
 }
 
 #user-session-nav {
-  display: inline-block;
-  float: right;
+  justify-content: flex-start;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: black;
   width: 100%;
+  font-size: 20px;
 }
 
 #user-session-nav li {
   float: left;
+  height: 101px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #user-session-nav li a {
   display: inline-block;
   color: white;
-  text-align: center;
   vertical-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-weight: bold;
-  height: 50px;
+  height: 101px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #user-session-nav li a:hover {
