@@ -1,4 +1,5 @@
 module CommentsHelper
+
   def stub(text)
     return text if less_than_26_words_long?(text)
     first_25_words(text) +  '...'
@@ -23,4 +24,4 @@ module CommentsHelper
 
 end
 
-#helpers CommentFormattingHelper
+

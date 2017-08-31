@@ -4,7 +4,7 @@ class Movie < ApplicationRecord
   has_many :comments
   has_many :activities
 
-  # def self.search(inputted_search)
-  #   where("title ILIKE ?", "%#{inputted_search}%")
-  # end
+  def self.search(inputted_search)
+    where("title ILIKE ?", "%#{inputted_search}%")
+  end
 end
