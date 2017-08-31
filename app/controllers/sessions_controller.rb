@@ -8,12 +8,12 @@ class SessionsController < ApplicationController
 			session[:user_id] = user.id
 			redirect_to "users/profile/#{user.id}"
 		else
-			redirect_to login_path
+			redirect_to root_path # login_path
 		end
 	end
 
 	def delete
 		session[:user_id] = nil
-		redirect_to login_path
+		redirect_to root_path # login_path
 	end
 end

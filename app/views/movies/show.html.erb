@@ -9,6 +9,12 @@
     <li><%= @movie.release_date %></li>
     <li><%= @movie.description %></li>
   </ul>
+
+  <ul>
+    <li id="watchlist-button"><%=link_to '☆ Add to Watchlist', movie_watchlists_path(@movie), method: :post, remote: true%></li>
+     <li id="favorites-button"><%=link_to '♡ Add to Favorites', movie_favorites_path(@movie), method: :post, remote: true%></li>
+  </ul>
+
 </div>
 
 <div id="actors">

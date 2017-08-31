@@ -30,10 +30,15 @@ gem 'jquery-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
+gem 'devise'
 gem 'bcrypt', '~> 3.1.7'
+#Jquery gem for ajax
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'warden'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
