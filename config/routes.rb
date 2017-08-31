@@ -9,5 +9,10 @@ Rails.application.routes.draw do
 
   get 	'signup', to: 'users#new'
   post 	'signup', to: 'users#create'
-  get 	'profile', to: 'users#show'
+  get 	'profile/:id', to: 'users#show'
+
+  resources :movies do
+    resources :comments
+  end
+
 end

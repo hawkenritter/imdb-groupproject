@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 	def new
-		@user = User.new		
+		@user = User.new
 	end
 
 	def create
@@ -13,6 +13,14 @@ class UsersController < ApplicationController
 			@errors = @user.errors.full_messages
 			render signup_path
 		end
+	end
+
+	def show
+		@user = User.find_by(id: params[:id])
+		@watchlists = @user.watchlists
+		@favorites = @user.favorites
+		@comments = @user.comments
+		@activities = @user.activities
 	end
 
 	private
