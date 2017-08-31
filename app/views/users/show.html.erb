@@ -1,0 +1,34 @@
+<h1>User Profile</h1>
+
+<h2>Welcome <%= @user.username %>!</h2>
+
+<h3>My Activity</h3>
+<ul>
+<% @activities.each do |activity| %>
+    <li> <%= "You #{activity.action} " %><%= link_to activity.movie.title, movie_path(activity.movie) %> </li>
+  <% end %>
+</ul>
+
+<h3>My Watchlist</h3>
+<ul>
+  <% @watchlists.each do |watchlist| %>
+    <li> <%= link_to watchlist.movie.title, movie_path(watchlist.movie) %> </li>
+  <% end %>
+</ul>
+
+<h3>My Favorites</h3>
+<ul>
+  <% @favorites.each do |favorite| %>
+    <li> <%= link_to favorite.movie.title, movie_path(favorite.movie) %> </li>
+  <% end %>
+</ul>
+
+<h3>My Comments</h3>
+<ul>
+  <% @comments.each do |comment| %>
+    <li> <%= "Movie: #{comment.movie.title} " %> <br>
+         <%= stub(comment.description) %> <br>
+         <%= "Written on #{long_form_date(comment.created_at)}" %>
+    </li>
+  <% end %>
+</ul>

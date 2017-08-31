@@ -15,6 +15,14 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def show
+		@user = User.find_by(id: params[:id])
+		@watchlists = @user.watchlists
+		@favorites = @user.favorites
+		@comments = @user.comments
+		@activities = @user.activities
+	end
+
 	private
 	def user_params
 		params.require(:user).permit(:username, :email, :password)
