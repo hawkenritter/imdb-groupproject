@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
 
     resources :comments
-    collection do
+    collection do # Please leave the collection do here
       get 'search'
     end
   end
