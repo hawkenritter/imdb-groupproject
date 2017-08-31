@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
 
-  root 	'movies#show'
+  resources :movies do
+    resources :comments
+    collection do
+      get 'search'
+    end
+  end
+
+  resources :users, only: [:show]
+
+  root 	'movies#index'
+
 
   get 		'login', to: 'sessions#new'
   post 		'login', to: 'sessions#create'
@@ -11,8 +21,4 @@ Rails.application.routes.draw do
 
   get 	'profile/:id', to: 'users#show'
 
-  resources :movies do
-    resources :comments
-  end
-  
 end

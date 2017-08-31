@@ -1,11 +1,17 @@
 class MoviesController < ApplicationController
 
   def show
-    @movie = Movie.first #only for testing.. change to Movie.find(params[:id])
+    @movie = Movie.find(params[:id])
   end
 
-  # def index
-  #   @movies = Movies.all
-  # end
+  def search
+    @search = params[:search]
+    @movies = Movie.search(@search).order("release_date DESC")
+    render "movies/_search_results"
+  end
+
+  def index
+    @movies = Movie.all
+  end
 
 end
