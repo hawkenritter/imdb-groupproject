@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
-  get 	'movies/index'
-  root 	'movies#index'
+
+  resources :movies do
+    resources :comments
+  end
+
+  root 	'movies#show'
 
   get 		'login', to: 'sessions#new'
   post 		'login', to: 'sessions#create'
@@ -10,4 +14,5 @@ Rails.application.routes.draw do
   get 	'signup', to: 'users#new'
   post 	'signup', to: 'users#create'
   get 	'profile', to: 'users#show'
+
 end
