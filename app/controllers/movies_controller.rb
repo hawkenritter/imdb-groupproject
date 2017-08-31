@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all
+    @movies = Movie.order("release_date DESC").where("release_date >= '2016-01-01'::date")
   end
 
 end
