@@ -2,20 +2,10 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe "Users signup/login"
+	  it "orders by last name" do
+	    lindeman = User.create!(first_name: "Andy", last_name: "Lindeman")
+	    chelimsky = User.create!(first_name: "David", last_name: "Chelimsky")
 
-   it "blocks unauthenticated access" do
-    sign_in nil
-    
-    get :index
-    
-    expect(response).to redirect_to(login_path)
-  end
-  
-  it "allows authenticated access" do
-    sign_in
-    
-    get :index
-    
-    expect(response).to be_success
-  end
+	    expect(User.ordered_by_last_name).to eq([chelimsky, lindeman])
+	  end
 end

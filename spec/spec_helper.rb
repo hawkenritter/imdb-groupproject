@@ -13,7 +13,7 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-require 'support/controller_helpers'
+require 'helpers/user_helpers_spec'
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -99,7 +99,8 @@ RSpec.configure do |config|
   
   
     config.include Devise::TestHelpers, :type => :controller
-    config.include ControllerHelpers, :type => :controller
-   end
-  end
+    config.include UserHelpers, :type => :controller
+   
+   
+  
 end
