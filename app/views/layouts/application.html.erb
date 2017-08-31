@@ -9,9 +9,10 @@
   </head>
   <header>
     <!-- Possible image tag/logo -->
-    <h1>IMBD-clone</h1>
+    <h1>IMDbc</h1>
     <ul id="user-session-nav">
       <% if current_user %>
+        <li><%= link_to image_tag("../../../assets/images/imdbc_logo.png", border: 0), root_path %></li>
         <li><%= link_to 'New Releases', root_path %></li>
         <li><%= link_to "Logout", logout_path, method: 'delete' %></li>
         <li><%= link_to "#{current_user.username}", user_path(current_user) %></li>

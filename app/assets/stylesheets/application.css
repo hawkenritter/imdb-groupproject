@@ -2,13 +2,16 @@ body {
   width: 80%;
   margin: auto;
   padding-top: 20px;
+  font-family: arial;
 }
 
 #search-form input[type=text] {
   width: 50%;
+  height: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
   display: inline-block;
+  font-size-adjust: 1.2;
 }
 
 #search-form input[type=submit] {
@@ -19,17 +22,11 @@ body {
 #user-session-nav {
   display: inline-block;
   float: right;
-}
-
-#user-session-nav {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: black;
-}
-
-#user-session-nav {
   width: 100%;
 }
 
@@ -41,8 +38,11 @@ body {
   display: inline-block;
   color: white;
   text-align: center;
+  vertical-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  font-weight: bold;
+  height: 50px;
 }
 
 #user-session-nav li a:hover {
@@ -71,7 +71,7 @@ body {
   margin-top: 10px;
 }
 
-img {
+.movie-box img {
   box-shadow: 5px 5px 3px gray;
   max-width: 182px;
   width: 100%;
