@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 			redirect_to root_path # profile_path
 		else
 			@errors = @user.errors.full_messages
-			render signup_path
+			render :new
 		end
 	end
 
