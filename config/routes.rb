@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   resources :movies do
+    resources :comments, :watchlists, :favorites
+  end
+
+
     resources :comments
     collection do
       get 'search'
@@ -10,7 +14,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   root 	'movies#index'
-
 
   get 		'login', to: 'sessions#new'
   post 		'login', to: 'sessions#create'
