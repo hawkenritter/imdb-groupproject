@@ -12,11 +12,11 @@
     <h1>IMBD-clone</h1>
     <ul id="user-session-nav">
       <% if current_user %>
-        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'New Releases', root_path %></li>
         <li><%= link_to "Logout", logout_path, method: 'delete' %></li>
         <li><%= link_to "#{current_user.username}", user_path(current_user) %></li>
       <% else %>
-        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'New Releases', root_path %></li>
         <li><%= link_to 'Login', login_path %></li>
         <li><%= link_to 'Signup', signup_path %></li>
       <% end %>
@@ -34,6 +34,6 @@
     <%= yield %>
   </body>
   <footer>
-    
+
   </footer>
 </html>
