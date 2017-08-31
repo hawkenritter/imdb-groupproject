@@ -7,8 +7,21 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+<header>
+<!-- Possible image tag/logo -->
+<p>IMBD-clone</p>
+	<% if current_user %>
+	  Signed in as <%= current_user.name %> | <%= link_to "Logout", '/logout' %>
+	<% else %>
+	  <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
+	<% end %>
+		
+</header>
+  
   <body>
     <%= yield %>
   </body>
+  <footer>
+  	
+  </footer>
 </html>
