@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
-
 	describe "Users signup/login"
    it "blocks unauthenticated access" do
     sign_in nil
