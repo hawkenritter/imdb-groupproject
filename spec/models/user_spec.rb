@@ -3,19 +3,21 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe "Users signup/login"
 
-   it "blocks unauthenticated access" do
-    sign_in nil
 
-    get :index
+  #  it "blocks unauthenticated access" do
+  #   sign_in nil
 
-    expect(response).to redirect_to(login_path)
-  end
+  #   get :index
 
-  it "allows authenticated access" do
-    sign_in
+  #   expect(response).to redirect_to(login_path)
+  # end
 
-    get :index
+  # it "allows authenticated access" do
+  #   sign_in
 
-    expect(response).to be_success
-  end
+  #   get :index
+
+  #   expect(response).to be_success
+  # end
+
 end

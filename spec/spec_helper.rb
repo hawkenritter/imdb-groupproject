@@ -13,7 +13,6 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-# require 'controllers/user_controller_spec'
 
 RSpec.configure do |config|
   config.formatter = :documentation
@@ -96,9 +95,5 @@ RSpec.configure do |config|
   # as the one that triggered the failure.
   Kernel.srand config.seed
 =end
-
-
-
-    # config.include Devise::TestHelpers, :type => :controller
-    # config.include ControllerHelpers, :type => :controller
-  end
+ 
+end
