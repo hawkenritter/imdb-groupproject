@@ -6,7 +6,12 @@ class CommentsController < ApplicationController
 
   def create
     @movie = Movie.find(params[:movie_id])
-    @comment = @movie.comments.create(comment_params)
+    p @movie
+    p params
+    @comment = @movie.comments.new(comment_params)
+    @comment.user = current_user
+
+    @comment.save
     redirect_to movie_path(@movie)
   end
 
@@ -17,7 +22,7 @@ class CommentsController < ApplicationController
 
   private
     def comment_params
-      params.require(:comment).permit(:description, :user)
+      params.require(:comment).permit(:description)
     end
 
 end

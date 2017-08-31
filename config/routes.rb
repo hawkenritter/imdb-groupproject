@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  root 	'movies#index'
+  root 	'movies#show'
 
   get 		'login', to: 'sessions#new'
   post 		'login', to: 'sessions#create'

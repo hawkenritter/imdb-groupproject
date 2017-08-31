@@ -24,7 +24,8 @@
     <p>
       <ul>
         <% @movie.comments.each do |comment| %>
-          <li class="movie-comment"><%=comment%></li>
+          <li class="movie-comment"><%=comment.description%></li>
+          <span>Commenter:<%=comment.user.username  %></span>
         <%end%>
       <hr>
       </ul>
@@ -35,7 +36,6 @@
 
       <%= form_for([@movie, @movie.comments.build]) do |f| %>
         <p>
-          <!-- f.hidden_field :user, value: current_user %> -->
           <%= f.label :comment %>
           <%= f.text_area :description %>
         </p>
@@ -44,7 +44,5 @@
         </p>
       <% end %>
     </p>
-
-
 </div>
 
