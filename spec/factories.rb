@@ -7,4 +7,5 @@ FactoryGirl.define do
     release_date { Date.new(Math.random(1960..2017)) }
     image_url { Faker::LoremPixel.image("182x268") }
   end
+
 end
