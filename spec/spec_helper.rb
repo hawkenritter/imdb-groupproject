@@ -13,7 +13,7 @@
 # it.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-require 'support/controller_helpers'
+# require 'controllers/user_controller_spec'
 
 RSpec.configure do |config|
   config.formatter = :documentation
@@ -97,10 +97,8 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 
-  
-  
-    config.include Devise::TestHelpers, :type => :controller
-    config.include ControllerHelpers, :type => :controller
-   end
+
+
+    # config.include Devise::TestHelpers, :type => :controller
+    # config.include ControllerHelpers, :type => :controller
   end
-end
