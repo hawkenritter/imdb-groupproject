@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
 
-
   resources :movies do
-    resources :comments
+    resources :comments, :watchlists, :favorites
   end
 
-  root 	'movies#show'
+
+    resources :comments
+    collection do
+      get 'search'
+    end
+  end
+
+  resources :users, only: [:show]
+
+  root 	'movies#index'
 
   get 		'login', to: 'sessions#new'
   post 		'login', to: 'sessions#create'
@@ -15,11 +23,5 @@ Rails.application.routes.draw do
   post 	'signup', to: 'users#create'
 
   get 	'profile/:id', to: 'users#show'
-
-  resources :movies do
-    resources :comments
-  end
-
- 
 
 end
