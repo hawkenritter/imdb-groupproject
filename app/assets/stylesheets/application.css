@@ -18,3 +18,57 @@ body {
   margin: auto;
   padding-top: 20px;
 }
+
+#search-form input[type=text] {
+  width: 50%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+#search-form input[type=submit] {
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+#user-session-nav {
+  display: inline-block;
+  float: right;
+}
+
+#user-session-nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+#user-session-nav {
+  width: 100%;
+}
+
+#user-session-nav li {
+  float: left;
+}
+
+#user-session-nav li a {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#user-session-nav li a:hover {
+  background-color: dimgray;
+}
+
+.movie-box {
+  list-style-type: none;
+  width: 21%;
+  display: inline-block;
+  padding-bottom: 20px;
+  vertical-align: top;
+  text-align: center;
+}

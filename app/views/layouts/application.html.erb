@@ -7,20 +7,30 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-<header>
-<!-- Possible image tag/logo -->
-<p>IMBD-clone</p>
-	<% if current_user %>
-
-	  Signed in as <%= current_user.username %> | <%= link_to "Logout", logout_path, method: 'delete' %>
-
-	<% else %>
-	  <%= link_to 'Login', login_path %> | <%= link_to 'Signup', signup_path %>
-	<% end %>
-
-</header>
+  <header>
+    <!-- Possible image tag/logo -->
+    <h1>IMBD-clone</h1>
+    <ul id="user-session-nav">
+      <% if current_user %>
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to "Logout", logout_path, method: 'delete' %></li>
+        <li><%= link_to "#{current_user.username}", user_path(current_user) %></li>
+      <% else %>
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Login', login_path %></li>
+        <li><%= link_to 'Signup', signup_path %></li>
+      <% end %>
+    </ul>
+  </header>
 
   <body>
+
+    <%= form_tag(search_movies_path, {method: "get", id: "search-form"}) do %>
+      <%= label_tag "Search: " %>
+      <%= text_field_tag :search, params[:search], placeholder: "Enter a Movie Title" %>
+      <%= submit_tag "Search" %>
+    <% end %>
+
     <%= yield %>
   </body>
   <footer>
