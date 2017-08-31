@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20170830190249) do
     t.text "actors"
     t.text "directors"
     t.string "image_url"
-    t.date "released_date"
+    t.date "release_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
