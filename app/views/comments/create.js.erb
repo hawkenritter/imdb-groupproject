@@ -1,0 +1,2 @@
+$('#comments').find('ul:first').append("<%= j render partial: 'comments/comment', locals: {comment: @comment}  %>");
+$('#comment-form')[0].reset();
