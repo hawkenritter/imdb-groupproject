@@ -2,8 +2,10 @@ Rails.application.routes.draw do
 
 
   resources :movies do
-    resources :comments
+    resources :comments, :watchlists, :favorites
   end
+
+
 
   root 	'movies#show'
 
@@ -16,10 +18,8 @@ Rails.application.routes.draw do
 
   get 	'profile/:id', to: 'users#show'
 
-  resources :movies do
-    resources :comments
-  end
 
- 
+
+
 
 end
