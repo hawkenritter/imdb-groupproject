@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170830190615) do
+ActiveRecord::Schema.define(version: 20170830190249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20170830190615) do
     t.text "actors"
     t.text "directors"
     t.string "image_url"
-    t.date "released_date"
+    t.date "release_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -80,5 +80,4 @@ ActiveRecord::Schema.define(version: 20170830190615) do
   add_foreign_key "favorites", "users"
   add_foreign_key "watchlists", "movies"
   add_foreign_key "watchlists", "users"
-
 end
