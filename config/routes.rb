@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-
-  resources :movies do
-    resources :comments
-  end
-
   root 	'movies#show'
 
   get 		'login', to: 'sessions#new'
@@ -19,7 +14,5 @@ Rails.application.routes.draw do
   resources :movies do
     resources :comments
   end
-
- 
-
+  
 end
