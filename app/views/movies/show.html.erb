@@ -1,0 +1,48 @@
+<div class="movie-image-container">
+  <img id="movie-image" src="<%=@movie.image_url%> " alt="Add grey question image">
+</div>
+
+
+<div class="movie-description">
+  <h2>Details</h2>
+  <ul id="movie-info">
+    <li><%= @movie.title %></li>
+    <li><%= @movie.release_date %></li>
+    <li><%= @movie.description %></li>
+  </ul>
+</div>
+
+<div id="actors">
+  <h2>Cast</h2>
+  <%=@movie.actors %>
+</div>
+
+<hr>
+
+<div id="comments">
+  <h2>Viewer Comments</h2>
+    <p>
+      <ul>
+        <% @movie.comments.each do |comment| %>
+          <li class="movie-comment"><%=comment.description%></li>
+          <span>Commenter:<%=comment.user.username  %></span>
+        <%end%>
+      <hr>
+      </ul>
+
+      <hr>
+
+    <h3>Leave a comment </h3>
+
+      <%= form_for([@movie, @movie.comments.build]) do |f| %>
+        <p>
+          <%= f.label :comment %>
+          <%= f.text_area :description %>
+        </p>
+        <p>
+          <%= f.submit %>
+        </p>
+      <% end %>
+    </p>
+</div>
+
