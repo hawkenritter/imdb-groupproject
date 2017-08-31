@@ -1,10 +1,9 @@
 class User < ApplicationRecord
 
+	validates :username, :email, presence: true
+	validates :username, :email, uniqueness: true
 
-	validate :username, :email, presence: true
-	validate :username, :email, uniqueness: true
-
-	has_secured_password
+	has_secure_password
 
   has_many :watchlists
   has_many :favorites
