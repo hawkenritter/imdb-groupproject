@@ -1,3 +1,5 @@
+RSpec.describe UsersController, type: :controller do
+ module ControllerHelpers
 
     def sign_in(user = double('user'))
       if user.nil?
