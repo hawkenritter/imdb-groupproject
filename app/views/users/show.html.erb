@@ -1,34 +1,46 @@
-<h1>User Profile</h1>
+<h1>Welcome <%= @user.username %>!</h1>
 
-<h2>Welcome <%= @user.username %>!</h2>
+<div id="user_activity">
+  <h3>My Activity</h3>
+  <ul>
+  <% @activities.each do |activity| %>
+      <li> <%= "You #{activity.message} " %><%= link_to activity.movie.title, movie_path(activity.movie) %> </li>
+      <br>
+    <% end %>
+  </ul>
+</div>
 
-<h3>My Activity</h3>
-<ul>
-<% @activities.each do |activity| %>
-    <li> <%= "You #{activity.action} " %><%= link_to activity.movie.title, movie_path(activity.movie) %> </li>
-  <% end %>
-</ul>
+<hr>
+<div id="user_watchlist">
+  <h3>My Watchlist</h3>
+  <ul class="list">
+    <% @watchlists.each do |watchlist| %>
+      <li class="list-item col-1-4"><%= link_to image_tag("#{watchlist.movie.image_url}", border: 0), movie_path(watchlist.movie) %><%= link_to watchlist.movie.title, movie_path(watchlist.movie) %> </li>
+    <% end %>
+  </ul>
+</div>
 
-<h3>My Watchlist</h3>
-<ul>
-  <% @watchlists.each do |watchlist| %>
-    <li> <%= link_to watchlist.movie.title, movie_path(watchlist.movie) %> </li>
-  <% end %>
-</ul>
+<hr>
+<div id="user_favorites">
+  <h3>My Favorites</h3>
+  <ul class="list">
+    <% @favorites.each do |favorite| %>
+      <li class="list-item col-1-4"><%= link_to image_tag("#{favorite.movie.image_url}", border: 0), movie_path(favorite.movie) %><%= link_to favorite.movie.title, movie_path(favorite.movie) %> </li>
+    <% end %>
+  </ul>
+</div>
 
-<h3>My Favorites</h3>
-<ul>
-  <% @favorites.each do |favorite| %>
-    <li> <%= link_to favorite.movie.title, movie_path(favorite.movie) %> </li>
-  <% end %>
-</ul>
-
-<h3>My Comments</h3>
-<ul>
-  <% @comments.each do |comment| %>
-    <li> <%= "Movie: #{comment.movie.title} " %> <br>
-         <%= stub(comment.description) %> <br>
-         <%= "Written on #{long_form_date(comment.created_at)}" %>
-    </li>
-  <% end %>
-</ul>
+<hr>
+<div id="user_comments">
+  <h3>My Comments</h3>
+  <ul>
+    <% @comments.each do |comment| %>
+      <li><%= link_to image_tag("#{comment.movie.image_url}", border: 0, class: "thumbnail" ), movie_path(comment.movie) %>
+           <%= stub(comment.description) %> <br>
+           <span class="small_details">Comment for <%= link_to comment.movie.title, movie_path(comment.movie) %></span><br>
+           <span class="small_details"><%= "Written on #{long_form_date(comment.created_at)}" %></span>
+      </li>
+      <hr>
+    <% end %>
+  </ul>
+<div>
