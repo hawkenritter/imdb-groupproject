@@ -6,5 +6,7 @@
     </ul>
   <% end %>
 <% else %>
-  <p>There are no movies defined containing the term(s) '<%= @search %>'</p>
+  <ul class="movie-box">
+    <li style="color: red">There are no movies defined containing the term(s) '<%= @search %>'</li>
+  </ul>
 <% end %>

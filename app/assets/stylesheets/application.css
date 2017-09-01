@@ -1,6 +1,12 @@
+a {
+  color: blue;
+  text-decoration: none;
+}
+
 body {
   width: 80%;
   margin: auto;
+  min-height: 1200px;
   font-family: arial;
   background: linear-gradient(gray, white);
 }
@@ -8,6 +14,7 @@ body {
 .body-box {
   background-color: white;
   box-shadow: 0 0 15px 5px gray;
+  min-height: 1200px;
 }
 
 .container {
@@ -15,7 +22,8 @@ body {
   padding-top: 10px;
   margin-left: auto;
   margin-right: auto;
-  max-height: 1200px;
+  min-height: 1200px;
+  padding-bottom: 30px;
 }
 
 header {
@@ -25,6 +33,7 @@ header {
 #top-box {
   background-color: hsl(120,0%,25%);
   height: 30px;
+  box-shadow: 0 0 15px 5px gray;
 }
 
 #top-box-line {
@@ -144,8 +153,17 @@ header {
 
 .movie-description li {
   list-style: none;
-
   margin-top: 20px;
+}
+
+.actors li {
+  list-style: none;
+  margin-bottom: 10px;
+  margin-left: -20px;
+}
+
+.actors {
+  margin-bottom: 40px;
 }
 
 .movie-box li {
@@ -226,7 +244,14 @@ ul > li.comment {
 .small_details {
   font-size: 13px;
   color: #606163;
+}
 
+#favorites-delete-button a {
+  color: red;
+}
+
+#watchlist-delete-button a {
+  color: red;
 }
 
 .center {

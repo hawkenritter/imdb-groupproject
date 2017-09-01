@@ -9,19 +9,17 @@ class CommentsController < ApplicationController
     @movie = Movie.find(params[:movie_id])
     @comment = @movie.comments.new(comment_params)
     @comment.user = current_user
-    #@activity = current_user.activity.create(movie_id: @movie.id, action: "comment")
     @comment.save
-    respond_to do |format|
-      format.html {redirect_to movie_path(@movie)}
-      format.js { }
-    end
 
+    @activity = Activity.create(user_id: current_user.id, movie_id: @movie.id, action: "comment")
+
+    redirect_to movie_path(@movie)
+
+    # respond_to do |format|
+    #   format.html {redirect_to movie_path(@movie)}
+    #   format.js { }
+    # end
   end
-
-  # def update
-
-  # end
-
 
   private
     def comment_params

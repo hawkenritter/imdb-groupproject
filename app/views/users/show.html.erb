@@ -1,13 +1,30 @@
 <div class="container">
   <h2>Welcome <%= @user.username %>!</h2>
-  <br>
+
+  <h3>My Activities</h3>
+  <hr>
   <div id="user_activity">
-    <h3>My Activity</h3>
     <ul>
       <% if @activities.any? %>
         <% @activities.each do |activity| %>
-            <li> <%= "You #{activity.message} " %><%= link_to activity.movie.title, movie_path(activity.movie) %> </li>
+          <li><%= link_to image_tag("#{activity.movie.image_url}", border: 0, class: "thumbnail" ), movie_path(activity.movie) %></li>
+          <% if activity.action == "comment" %>
+            <span class="small_details">You added a comment to <%= link_to activity.movie.title, movie_path(activity.movie) %></span><br><span class="small_details"> on <%= long_form_date(activity.created_at) %></span>
             <br>
+            <br>
+          <% elsif activity.action == "Remove Watchlist" %>
+            <span class="small_details">You removed <%= link_to activity.movie.title, movie_path(activity.movie) %> from your Watchlist</span><br><span class="small_details"> on <%= long_form_date(activity.created_at) %></span>
+            <br>
+            <br>
+          <% elsif activity.action == "Remove Favorite" %>
+            <span class="small_details">You removed <%= link_to activity.movie.title, movie_path(activity.movie) %> from your Favorites</span><br><span class="small_details"> on <%= long_form_date(activity.created_at) %></span>
+            <br>
+            <br>
+          <% else %>
+            <span class="small_details">You added <%= link_to activity.movie.title, movie_path(activity.movie) %> to your <%= activity.action %></span><br><span class="small_details"> on <%= long_form_date(activity.created_at) %></span>
+            <br>
+            <br>
+          <% end %>
         <% end %>
       <% else %>
         <li>You have no activity</li>
@@ -15,9 +32,9 @@
     </ul>
   </div>
 
-  <hr>
   <div id="user_watchlist">
     <h3>My Watchlist</h3>
+    <hr>
     <ul class="list">
       <% if @watchlists.any? %>
         <% @watchlists.each do |watchlist| %>
@@ -29,9 +46,9 @@
     </ul>
   </div>
 
-  <hr>
   <div id="user_favorites">
     <h3>My Favorites</h3>
+    <hr>
     <ul class="list">
       <% if @favorites.any? %>
         <% @favorites.each do |favorite| %>
@@ -43,9 +60,9 @@
     </ul>
   </div>
 
+  <h3>My Comments</h3>
   <hr>
   <div id="user_comments">
-    <h3>My Comments</h3>
     <ul>
       <% if @comments.any? %>
         <% @comments.each do |comment| %>
@@ -54,6 +71,7 @@
                <span class="small_details">Comment for <%= link_to comment.movie.title, movie_path(comment.movie) %></span><br>
                <span class="small_details"><%= "Written on #{long_form_date(comment.created_at)}" %></span>
           </li>
+          <br>
           <hr>
         <% end %>
       <% else %>
