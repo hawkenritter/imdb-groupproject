@@ -1,21 +1,28 @@
+<ul class="favorite-watch">
+  <% if includes_movie(@movie) %>
+    <%= render partial: "watchlists/delete_from_watchlist" %>
+  <% else %>
+     <%= render partial: "watchlists/add_to_watchlist" %>
+  <% end %>
+
+  <% if includes_favorite(@movie)%>
+    <%= render partial: "favorites/delete_from_favorites" %>
+  <% else %>
+    <%= render partial: "favorites/add_to_favorites" %>
+  <% end %>
+</ul>
+
 <div class="movie-image-container">
   <img id="movie-image" src="<%=@movie.image_url%> " alt="Add grey question image">
 </div>
 
-
 <div class="movie-description">
-  <h2>Details</h2>
   <ul id="movie-info">
-    <li><%= @movie.title %></li>
-    <li><%= @movie.release_date %></li>
+    <h2><%=@movie.title  %> (<%=(@movie.release_date).year %>)</h2>
+
+
     <li><%= @movie.description %></li>
   </ul>
-
-  <ul>
-    <li id="watchlist-button"><%=link_to '☆ Add to Watchlist', movie_watchlists_path(@movie), method: :post, remote: true%></li>
-     <li id="favorites-button"><%=link_to '♡ Add to Favorites', movie_favorites_path(@movie), method: :post, remote: true%></li>
-  </ul>
-
 </div>
 
 <div id="actors">
@@ -23,7 +30,7 @@
   <%=@movie.actors %>
 </div>
 
-<hr>☆
+<hr>
 
 <div id="comments">
   <h2>Viewer Comments</h2>

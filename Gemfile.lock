@@ -225,9 +225,7 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.2)
-
   devise
-
   factory_girl_rails
   faker
   jbuilder (~> 2.5)

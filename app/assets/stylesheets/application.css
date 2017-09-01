@@ -63,3 +63,29 @@ body {
   text-decoration: none;
   color: blue;
 }
+
+.favorite-watch {
+  width: 25%;
+  list-style: none;
+  text-decoration: none;
+}
+
+.favorite-watch a:link {
+  text-decoration: none;
+  width: 25%;
+}
+
+.movie-image-container {
+  display: inline-block;
+}
+
+.movie-description {
+  display: inline-block;
+  list-style: none;
+  width: 60%;
+  vertical-align: top;
+}
+
+.movie-description li {
+  list-style: none;
+}
