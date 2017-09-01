@@ -1,5 +1,5 @@
 a {
-  color: blue;
+  color: #136CB2;
   text-decoration: none;
 }
 
@@ -247,13 +247,17 @@ ul > li.comment {
 }
 
 #favorites-delete-button a {
-  color: red;
+  color: #c6033e;
 }
 
 #watchlist-delete-button a {
-  color: red;
+  color: #c6033e;
 }
 
 .center {
   text-align: center;
+}
+
+.left {
+  text-align: left;
 }
