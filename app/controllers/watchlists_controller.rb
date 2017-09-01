@@ -8,6 +8,7 @@ class WatchlistsController < ApplicationController
     @movie = Movie.find(params[:movie_id])
     @user = current_user
       @watchlist = @movie.watchlists.new(user: @user, movie: @movie)
+      #@activity = @user.activity.create(movie_id: @movie.id, action: "watchlist")
       @watchlist.save
       respond_to do |format|
         format.html {redirect_to movie_path(@movie)}

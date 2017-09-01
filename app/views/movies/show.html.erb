@@ -41,6 +41,8 @@
         </ul>
       <% end %>
   </div>
+  <hr>
+
   <div>
   <h3 >Leave a comment </h3>
    <%= form_for([@movie, @movie.comments.build], remote: true, :html => { :id => 'comment-form' } ) do |f| %>
@@ -48,5 +50,6 @@
       <%= f.text_area :description %>
       <%= f.submit %>
     <% end %>
+    <br><br>
   </div>
 </div>
