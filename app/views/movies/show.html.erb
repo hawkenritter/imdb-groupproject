@@ -27,7 +27,7 @@
   <h2>Viewer Comments</h2>
     <p>
     <% if @movie.comments %>
-    <ul>
+    <ul reversed>
     <% @movie.comments.each do|comment| %>  
         <%= render partial: 'comments/comment', locals: {comment: comment} %> 
     <% end %>
