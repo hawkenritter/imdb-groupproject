@@ -6,13 +6,15 @@ class CommentsController < ApplicationController
 
   def create
     @movie = Movie.find(params[:movie_id])
-    p @movie
-    p params
     @comment = @movie.comments.new(comment_params)
     @comment.user = current_user
 
     @comment.save
-    redirect_to movie_path(@movie)
+    respond_to do |format|
+      format.html {redirect_to movie_path(@movie)}
+      format.js { }
+    end
+    
   end
 
   # def update
