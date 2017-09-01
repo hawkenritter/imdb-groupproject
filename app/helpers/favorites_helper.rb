@@ -1,9 +1,12 @@
 module FavoritesHelper
   def includes_favorite(movie)
-    current_user.favorites.each do |favorited_item|
-      return true if favorited_item.movie_id == movie.id
+    if current_user
+      current_user.favorites.each do |favorited_item|
+        return true if favorited_item.movie_id == movie.id
+      end
+    else
+      false
     end
-    false
   end
 end
 
