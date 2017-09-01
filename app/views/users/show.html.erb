@@ -1,6 +1,6 @@
 <div class="container">
   <h2>Welcome <%= @user.username %>!</h2>
-
+  <br>
   <div id="user_activity">
     <h3>My Activity</h3>
     <ul>
@@ -21,7 +21,7 @@
     <ul class="list">
       <% if @watchlists.any? %>
         <% @watchlists.each do |watchlist| %>
-          <li class="list-item col-1-4"><%= link_to image_tag("#{watchlist.movie.image_url}", border: 0), movie_path(watchlist.movie) %><%= link_to watchlist.movie.title, movie_path(watchlist.movie) %> </li>
+          <li class="list-item col-1-4"><%= link_to image_tag("#{watchlist.movie.image_url}", border: 0), movie_path(watchlist.movie) %><br><%= link_to watchlist.movie.title, movie_path(watchlist.movie), class: "center" %> </li>
         <% end %>
       <% else %>
         <li>You have no movies in your watchlist</li>
@@ -35,7 +35,7 @@
     <ul class="list">
       <% if @favorites.any? %>
         <% @favorites.each do |favorite| %>
-          <li class="list-item col-1-4"><%= link_to image_tag("#{favorite.movie.image_url}", border: 0), movie_path(favorite.movie) %><%= link_to favorite.movie.title, movie_path(favorite.movie) %> </li>
+          <li class="list-item col-1-4"><%= link_to image_tag("#{favorite.movie.image_url}", border: 0), movie_path(favorite.movie) %><br><%= link_to favorite.movie.title, movie_path(favorite.movie), class: "center" %> </li>
         <% end %>
       <% else %>
         <li>You have no movies in your favorites</li>
@@ -61,4 +61,5 @@
       <% end %>
     </ul>
   <div>
+
 </div>

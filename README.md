@@ -66,7 +66,7 @@ The website uses a Postgres database
 
 ### Database schema
 
-![alt text](https://github.com/hawkenritter/imdb-groupproject/public/db-schema.png "DB schema")
+![alt text](https://github.com/hawkenritter/imdb-groupproject/blob/development/public/db-schema.png "DB schema")
 
 ## Testing
 
