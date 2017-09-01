@@ -19,11 +19,10 @@ class FavoritesController < ApplicationController
 
     @activity = Activity.create(user_id: current_user.id, movie_id: @movie.id, action: "Favorites")
 
-    redirect_to user_path(@user)
-    # respond_to do |format|
-    #   format.html {redirect_to movie_path(@movie)}
-    #   format.js {}
-    # end
+    respond_to do |format|
+      format.html {redirect_to movie_path(@movie)}
+      format.js {}
+    end
   end
 
   def destroy
