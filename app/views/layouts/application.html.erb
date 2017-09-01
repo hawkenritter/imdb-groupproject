@@ -8,32 +8,34 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <header>
-    <!-- Possible image tag/logo -->
-    <h1>IMBD-clone</h1>
+    <div id="top-box"></div>
+    <div id="top-box-line"></div>
     <ul id="user-session-nav">
       <% if current_user %>
-        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to image_tag("imdbc_logo.png", border: 0), root_path %></li>
         <li><%= link_to "Logout", logout_path, method: 'delete' %></li>
         <li><%= link_to "#{current_user.username}", user_path(current_user) %></li>
       <% else %>
-        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to image_tag("imdbc_logo.png", border: 0), root_path %></li>
         <li><%= link_to 'Login', login_path %></li>
         <li><%= link_to 'Signup', signup_path %></li>
       <% end %>
+      <li>
+        <%= form_tag(search_movies_path, {method: "get", id: "search-form"}) do %>
+        <%= label_tag "Search: " %>
+        <%= text_field_tag :search, params[:search], placeholder: "Enter a Movie Title" %>
+        <%= submit_tag "Search" %>
+      <% end %>
+      </li>
     </ul>
   </header>
 
   <body>
-
-    <%= form_tag(search_movies_path, {method: "get", id: "search-form"}) do %>
-      <%= label_tag "Search: " %>
-      <%= text_field_tag :search, params[:search], placeholder: "Enter a Movie Title" %>
-      <%= submit_tag "Search" %>
-    <% end %>
-
-    <%= yield %>
+    <div class="body-box">
+      <%= yield %>
+    </div>
   </body>
   <footer>
-    
+
   </footer>
 </html>

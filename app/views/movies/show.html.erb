@@ -35,24 +35,20 @@
 <div id="comments">
   <h2>Viewer Comments</h2>
     <p>
-      <ul>
-        <% @movie.comments.each do |comment| %>
-          <li class="movie-comment"><%=comment.description%></li>
-          <span>Commenter:<%=comment.user.username  %></span>
-        <%end%>
-      <hr>
-      </ul>
-
-      <hr>
-
-    <h3>Leave a comment </h3>
-
-      <%= form_for([@movie, @movie.comments.build]) do |f| %>
+    <% if @movie.comments %>
+    <ul reversed>
+    <% @movie.comments.each do|comment| %>  
+        <%= render partial: 'comments/comment', locals: {comment: comment} %> 
+    <% end %>
+    </ul>
+    <% end %>
+    <h3 >Leave a comment </h3>
+      <%= form_for([@movie, @movie.comments.build], remote: true, :html => { :id => 'comment-form' } ) do |f| %>
         <p>
           <%= f.label :comment %>
           <%= f.text_area :description %>
         </p>
-        <p>
+        <p >
           <%= f.submit %>
         </p>
       <% end %>
