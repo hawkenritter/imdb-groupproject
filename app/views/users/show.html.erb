@@ -41,7 +41,7 @@
           <li class="list-item col-1-4"><%= link_to image_tag("#{watchlist.movie.image_url}", border: 0), movie_path(watchlist.movie) %><br><%= link_to watchlist.movie.title, movie_path(watchlist.movie), class: "center" %> </li>
         <% end %>
       <% else %>
-        <li>You have no movies in your watchlist</li>
+        <li class="left">You have no movies in your watchlist</li>
       <% end %>
     </ul>
   </div>
@@ -55,7 +55,7 @@
           <li class="list-item col-1-4"><%= link_to image_tag("#{favorite.movie.image_url}", border: 0), movie_path(favorite.movie) %><br><%= link_to favorite.movie.title, movie_path(favorite.movie), class: "center" %> </li>
         <% end %>
       <% else %>
-        <li>You have no movies in your favorites</li>
+        <li class="left">You have no movies in your favorites</li>
       <% end %>
     </ul>
   </div>
