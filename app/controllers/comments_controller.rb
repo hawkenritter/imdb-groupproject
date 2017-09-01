@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
   end
 
   def create
+    p "Create called!!!!!!!!!!"
     @movie = Movie.find(params[:movie_id])
     @comment = @movie.comments.new(comment_params)
     @comment.user = current_user

@@ -134,6 +134,11 @@ header {
 /*User's Profile CSS*/
 ul {
   list-style-type: none;
+  transform: rotate(180deg);
+}
+
+ul > li {
+    transform: rotate(-180deg);
 }
 
 .thumbnail {
