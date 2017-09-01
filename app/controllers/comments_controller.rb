@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    p "Create called!!!!!!!!!!"
     @movie = Movie.find(params[:movie_id])
     @comment = @movie.comments.new(comment_params)
     @comment.user = current_user
@@ -13,12 +12,10 @@ class CommentsController < ApplicationController
 
     @activity = Activity.create(user_id: current_user.id, movie_id: @movie.id, action: "comment")
 
-    redirect_to movie_path(@movie)
-
-    # respond_to do |format|
-    #   format.html {redirect_to movie_path(@movie)}
-    #   format.js { }
-    # end
+    respond_to do |format|
+      format.html {redirect_to movie_path(@movie)}
+      format.js { }
+    end
   end
 
   private

@@ -12,12 +12,10 @@ class WatchlistsController < ApplicationController
 
     @activity = Activity.create(user_id: current_user.id, movie_id: @movie.id, action: "Watchlist")
 
-    redirect_to user_path(@user)
-
-    # respond_to do |format|
-    #   format.html {redirect_to movie_path(@movie)}
-    #   format.js {}
-    # end
+    respond_to do |format|
+      format.html {redirect_to movie_path(@movie)}
+      format.js {}
+    end
 end
 
   def destroy
@@ -27,12 +25,10 @@ end
 
     @activity = Activity.create(user_id: current_user.id, movie_id: @movie.id, action: "Remove Watchlist")
 
-    redirect_to movie_path(@movie)
-
-    # respond_to do |format|
-    #   format.html {redirect_to movie_path(@movie)}
-    #   format.js {}
-    # end
+    respond_to do |format|
+      format.html {redirect_to movie_path(@movie)}
+      format.js {}
+    end
   end
 
 end
