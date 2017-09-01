@@ -16,10 +16,13 @@ class FavoritesController < ApplicationController
     @favorite = @movie.favorites.new(user: @user, movie: @movie)
     @favorite.save
 
-    respond_to do |format|
-      format.html {redirect_to movie_path(@movie)}
-      format.js {}
-    end
+    @activity = Activity.create(user_id: current_user.id, movie_id: @movie.id, action: "Favorites")
+
+    redirect_to user_path(@user)
+    # respond_to do |format|
+    #   format.html {redirect_to movie_path(@movie)}
+    #   format.js {}
+    # end
   end
 
   def destroy
@@ -27,10 +30,14 @@ class FavoritesController < ApplicationController
     @favorite = current_user.favorites.find_by(movie_id: @movie.id)
     @favorite.destroy
 
-    respond_to do |format|
-      format.html {redirect_to movie_path(@movie)}
-      format.js {}
-    end
+    @activity = Activity.create(user_id: current_user.id, movie_id: @movie.id, action: "Remove Favorite")
+
+    redirect_to movie_path(@movie)
+
+    # respond_to do |format|
+    #   format.html {redirect_to movie_path(@movie)}
+    #   format.js {}
+    # end
   end
 
 end

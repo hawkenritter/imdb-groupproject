@@ -1,1 +1,1 @@
- <li id="watchlist-button"><%=link_to '☆ Remove from Watchlist', movie_watchlist_path(@movie), method: :delete, remote: true%></li>
+<li id="watchlist-delete-button"><%= link_to "☆ Remove from Watchlist", movie_watchlist_path(@movie), method: :delete %></li>
