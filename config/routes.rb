@@ -2,13 +2,20 @@ Rails.application.routes.draw do
 
   resources :movies do
     resources :comments, :watchlists, :favorites
+
+
+  end
+
+
+    resources :comments
+
+
+
     collection do # Please leave the collection do here
       get 'search'
     end
   end
 
-
-  resources :comments
 
   resources :users, only: [:show]
 
