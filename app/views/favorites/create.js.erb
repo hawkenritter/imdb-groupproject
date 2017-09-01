@@ -1,2 +1,2 @@
-
-  $('#favorites-button').html("Added to Favorites");
+// if $('#favorites-button').html() == "Added to Favorites"
+  $('#favorites-button').html("<%= escape_javascript(render partial: 'favorites/delete_from_favorites') %>")

@@ -15,6 +15,7 @@ body {
   padding-top: 10px;
   margin-left: auto;
   margin-right: auto;
+  max-height: 1200px;
 }
 
 header {
@@ -118,6 +119,34 @@ header {
 .movie-box a {
   text-decoration: none;
   color: blue;
+
+}
+
+.favorite-watch {
+  width: 25%;
+  list-style: none;
+  text-decoration: none;
+}
+
+.favorite-watch a:link {
+  text-decoration: none;
+  width: 25%;
+}
+
+.movie-image-container {
+  display: inline-block;
+}
+
+.movie-description {
+  display: inline-block;
+  list-style: none;
+  width: 60%;
+  vertical-align: top;
+}
+
+.movie-description li {
+  list-style: none;
+
   margin-top: 20px;
 }
 
@@ -185,4 +214,5 @@ ul > li.comment {
 .small_details {
   font-size: 13px;
   color: silver;
+
 }

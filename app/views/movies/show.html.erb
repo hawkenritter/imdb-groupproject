@@ -1,21 +1,26 @@
-<div class="movie-image-container">
-  <img id="movie-image" src="<%=@movie.image_url%> " alt="Add grey question image">
-</div>
+<div class="container">
+  <ul class="favorite-watch">
+    <% if includes_movie(@movie) %>
+      <%= render partial: "watchlists/delete_from_watchlist" %>
+    <% else %>
+       <%= render partial: "watchlists/add_to_watchlist" %>
+    <% end %>
 
-<div class="movie-description">
-  <h2>Details</h2>
-  <ul id="movie-info">
-    <li><%= @movie.title %></li>
-    <li><%= @movie.release_date %></li>
-    <li><%= @movie.description %></li>
+    <% if includes_favorite(@movie)%>
+      <%= render partial: "favorites/delete_from_favorites" %>
+    <% else %>
+      <%= render partial: "favorites/add_to_favorites" %>
+    <% end %>
   </ul>
 
-  <ul>
-    <li id="watchlist-button"><%=link_to '☆ Add to Watchlist', movie_watchlists_path(@movie), method: :post, remote: true%></li>
-     <li id="favorites-button"><%=link_to '♡ Add to Favorites', movie_favorites_path(@movie), method: :post, remote: true%></li>
-  </ul>
+  <div class="movie-image-container">
+    <img id="movie-image" src="<%=@movie.image_url%> " alt="Add grey question image">
+  </div>
 
-</div>
+  <div class="movie-description">
+    <ul id="movie-info">
+      <h2><%=@movie.title  %> (<%=(@movie.release_date).year %>)</h2>
+
 
 <div id="actors">
   <h2>Cast</h2>
@@ -25,24 +30,21 @@
 
 <div id="comments">
   <h2>Viewer Comments</h2>
-    <p>
+    <br>
     <% if @movie.comments %>
-    <ul class="comment" >
-    <% @movie.comments.each do|comment| %>  
-        <%= render partial: 'comments/comment', locals: {comment: comment} %> 
+      <ul class="comment" >
+        <% @movie.comments.each do|comment| %>  
+          <%= render partial: 'comments/comment', locals: {comment: comment} %> 
+        <% end %>
+      </ul>
+  </div>
+  <h3 >Leave a comment </h3>
+   <%= form_for([@movie, @movie.comments.build], remote: true, :html => { :id => 'comment-form' } ) do |f| %>
+    <p>
+      <%= f.label :comment %>
+      <%= f.text_area :description %>
+     </p>
+     <p ><%= f.submit %></p>
     <% end %>
-    </ul>
-    <% end %>
-    <h3 >Leave a comment </h3>
-      <%= form_for([@movie, @movie.comments.build], remote: true, :html => { :id => 'comment-form' } ) do |f| %>
-        <p>
-          <%= f.label :comment %>
-          <%= f.text_area :description %>
-        </p>
-        <p >
-          <%= f.submit %>
-        </p>
-      <% end %>
-    </p>
+  </div>
 </div>
-
