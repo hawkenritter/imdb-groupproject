@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :movies do
-    resources :comments, :watchlists, :favorites
+  resources :movies, only: [:index, :show] do
+    resources :favorites, only: [:new, :create, :destroy]
+    resources :watchlists, only: [:new, :create, :destroy]
+    resources :comments, only: [:new, :create, :destroy]
     collection do # Please leave the collection do here
       get 'search'
     end
   end
-
-  resources :comments
 
   resources :users, only: [:show]
 
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   get 		'login', to: 'sessions#new'
   post 		'login', to: 'sessions#create'
-  delete 	'logout', to: 'sessions#delete'
+  delete  'logout', to: 'sessions#delete'
 
   get 	'signup', to: 'users#new'
   post 	'signup', to: 'users#create'

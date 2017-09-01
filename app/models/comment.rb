@@ -4,8 +4,7 @@ class Comment < ApplicationRecord
 
   def comment_date
   	date = self.created_at
-  	date.strftime("%A, %b %e,")
-  	
+  	date.strftime('%B %e, %Y')
   end
 
   def comment_time
