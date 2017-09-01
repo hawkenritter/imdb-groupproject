@@ -14,6 +14,7 @@ class FavoritesController < ApplicationController
     @movie = Movie.find(params[:movie_id])
     @user = current_user
     @favorite = @movie.favorites.new(user: @user, movie: @movie)
+    #@activity = @user.activity.create(movie_id: @movie.id, action: "favorite")
     @favorite.save
 
     @activity = Activity.create(user_id: current_user.id, movie_id: @movie.id, action: "Favorites")

@@ -125,7 +125,7 @@ header {
 
 .movie-box a {
   text-decoration: none;
-  color: blue;
+  color: #136CB2;
 }
 
 .favorite-watch {
@@ -219,6 +219,20 @@ ul > li.comment {
   justify-content: space-around;
 }
 
+.list img {
+  box-shadow: 5px 5px 3px gray;
+}
+
+.list a {
+  text-decoration: none;
+  color: #136CB2;
+}
+
+#user_activity a, #user_comments a {
+  text-decoration: none;
+  color: #136CB2;
+}
+
 .list-item {
   display: flex;
   flex-direction: column;
@@ -227,7 +241,7 @@ ul > li.comment {
 
 .small_details {
   font-size: 13px;
-  color: dimgray;
+  color: #606163;
 }
 
 #favorites-delete-button a {
@@ -236,4 +250,8 @@ ul > li.comment {
 
 #watchlist-delete-button a {
   color: red;
+}
+
+.center {
+  text-align: center;
 }

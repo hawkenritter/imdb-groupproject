@@ -13,10 +13,12 @@ class CommentsController < ApplicationController
 
     @activity = Activity.create(user_id: current_user.id, movie_id: @movie.id, action: "comment")
 
-    respond_to do |format|
-      format.html {redirect_to movie_path(@movie)}
-      format.js { }
-    end
+    redirect_to movie_path(@movie)
+
+    # respond_to do |format|
+    #   format.html {redirect_to movie_path(@movie)}
+    #   format.js { }
+    # end
   end
 
   private

@@ -18,7 +18,7 @@ class WatchlistsController < ApplicationController
     #   format.html {redirect_to movie_path(@movie)}
     #   format.js {}
     # end
-  end
+end
 
   def destroy
     @movie = Movie.find(params[:movie_id])
