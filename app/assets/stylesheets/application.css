@@ -119,18 +119,16 @@ header {
 .movie-box a {
   text-decoration: none;
   color: blue;
-
 }
 
 .favorite-watch {
   width: 25%;
   list-style: none;
-  text-decoration: none;
+  padding-left: 0px;
 }
 
 .favorite-watch a:link {
   text-decoration: none;
-  width: 25%;
 }
 
 .movie-image-container {

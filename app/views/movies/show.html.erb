@@ -19,26 +19,29 @@
 
   <div class="movie-description">
     <ul id="movie-info">
-      <h2><%=@movie.title  %> (<%=(@movie.release_date).year %>)</h2>
-
-
-<div id="actors">
-  <h2>Cast</h2>
-  <%=@movie.actors %>
-</div>
-<hr>
-
-<div id="comments">
-  <h2>Viewer Comments</h2>
-    <br>
-    <% if @movie.comments %>
-      <ul class="comment" >
-        <% @movie.comments.each do|comment| %>
-          <%= render partial: 'comments/comment', locals: {comment: comment} %>
-        <% end %>
-      </ul>
-    <% end %>
+      <li><h2><%=@movie.title %> (<%=(@movie.release_date).year %>)</h2></li>
+      <li><%=@movie.description %></li>
+    </ul>
   </div>
+
+  <div id="actors">
+    <h2>Cast</h2>
+    <%=@movie.actors %>
+  </div>
+  <hr>
+
+  <div id="comments">
+    <h2>Viewer Comments</h2>
+      <br>
+      <% if @movie.comments %>
+        <ul class="comment" >
+          <% @movie.comments.each do|comment| %>
+            <%= render partial: 'comments/comment', locals: {comment: comment} %>
+          <% end %>
+        </ul>
+      <% end %>
+  </div>
+  <div>
   <h3 >Leave a comment </h3>
    <%= form_for([@movie, @movie.comments.build], remote: true, :html => { :id => 'comment-form' } ) do |f| %>
       <%= f.label :comment %>
