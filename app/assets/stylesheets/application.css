@@ -163,10 +163,14 @@ header {
 /*User's Profile CSS*/
 ul {
   list-style-type: none;
+}
+
+ul.comment {
+  list-style-type: none;
   transform: rotate(180deg);
 }
 
-ul > li {
+ul > li.comment {
     transform: rotate(-180deg);
 }
 

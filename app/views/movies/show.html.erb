@@ -22,38 +22,29 @@
       <h2><%=@movie.title  %> (<%=(@movie.release_date).year %>)</h2>
 
 
-      <li><%= @movie.description %></li>
-    </ul>
-  </div>
+<div id="actors">
+  <h2>Cast</h2>
+  <%=@movie.actors %>
+</div>
+<hr>
 
-  <div id="actors">
-    <h2>Cast</h2>
-    <%=@movie.actors %>
-  </div>
-
-  <hr>
-
-  <div id="comments">
-    <h2>Viewer Comments</h2>
-      <p>
-      <% if @movie.comments %>
-      <ul reversed>
-      <% @movie.comments.each do|comment| %>
-          <%= render partial: 'comments/comment', locals: {comment: comment} %>
-      <% end %>
-      </ul>
-      <% end %>
-      <h3 >Leave a comment </h3>
-        <%= form_for([@movie, @movie.comments.build], remote: true, :html => { :id => 'comment-form' } ) do |f| %>
-          <p>
-            <%= f.label :comment %>
-            <%= f.text_area :description %>
-          </p>
-          <p >
-            <%= f.submit %>
-          </p>
+<div id="comments">
+  <h2>Viewer Comments</h2>
+    <br>
+    <% if @movie.comments %>
+      <ul class="comment" >
+        <% @movie.comments.each do|comment| %>  
+          <%= render partial: 'comments/comment', locals: {comment: comment} %> 
         <% end %>
-      </p>
+      </ul>
+  </div>
+  <h3 >Leave a comment </h3>
+   <%= form_for([@movie, @movie.comments.build], remote: true, :html => { :id => 'comment-form' } ) do |f| %>
+    <p>
+      <%= f.label :comment %>
+      <%= f.text_area :description %>
+     </p>
+     <p ><%= f.submit %></p>
+    <% end %>
   </div>
 </div>
-
