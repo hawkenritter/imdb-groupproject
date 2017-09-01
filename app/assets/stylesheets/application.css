@@ -1,23 +1,66 @@
 body {
   width: 80%;
   margin: auto;
-  padding-top: 20px;
   font-family: arial;
+  background: linear-gradient(gray, white);
+}
+
+.body-box {
+  background-color: white;
+  box-shadow: 0 0 15px 5px gray;
+}
+
+.container {
+  width: 95%;
+  padding-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header {
+  box-shadow: 0 15px 15px 5px gray;
+}
+
+#top-box {
+  background-color: hsl(120,0%,25%);
+  height: 30px;
+}
+
+#top-box-line {
+  background-color: black;
+  height: 1px;
+}
+
+#search-form {
+  color: white;
+  vertical-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-weight: bold;
+  height: 101px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #search-form input[type=text] {
+  display: inline-flex;
   width: 50%;
-  height: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  display: inline-block;
-  font-size-adjust: 1.2;
+  margin: 10px;
 }
 
 #search-form input[type=submit] {
-  display: inline-block;
+  display: inline-flex;
   height: 20px;
-  width: 50px;
+  width: 60px;
+  background-color: khaki;
+  border: 1px solid goldenrod;
+  font-weight: bold;
+}
+
+#search-form label {
+  color: white;
+  display: inline-flex;
 }
 
 #user-session-nav {
@@ -26,7 +69,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: black;
+  background: linear-gradient(hsl(120,0%,30%), black, black);
   width: 100%;
   font-size: 20px;
 }
@@ -40,7 +83,6 @@ body {
 }
 
 #user-session-nav li a {
-  display: inline-block;
   color: white;
   vertical-align: center;
   padding: 14px 16px;
@@ -54,6 +96,11 @@ body {
 
 #user-session-nav li a:hover {
   background-color: dimgray;
+}
+
+#user-session-nav li:last-child {
+  float: right;
+  padding-right: 10px;
 }
 
 .movie-box {
