@@ -64,6 +64,10 @@ The website uses a Postgres database
 
     $ rails db:seed
 
+### Database schema
+
+![alt text](https://github.com/hawkenritter/imdb-groupproject/public/db-schema.png "DB schema")
+
 ## Testing
 
 ### How to run the test suite
