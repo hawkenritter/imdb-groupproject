@@ -6,6 +6,7 @@ a {
 body {
   width: 80%;
   margin: auto;
+  min-height: 1200px;
   font-family: arial;
   background: linear-gradient(gray, white);
 }
@@ -13,6 +14,7 @@ body {
 .body-box {
   background-color: white;
   box-shadow: 0 0 15px 5px gray;
+  min-height: 1200px;
 }
 
 .container {
@@ -20,7 +22,7 @@ body {
   padding-top: 10px;
   margin-left: auto;
   margin-right: auto;
-  min-height: 800px;
+  min-height: 1200px;
   padding-bottom: 30px;
 }
 
